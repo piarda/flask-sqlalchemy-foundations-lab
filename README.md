@@ -1,5 +1,49 @@
 # Flask-SQLAlchemy Lab 1
 
+This project is a Flask-based backend service designed to store and serve global earthquake data. It provides API endpoints to query earthquake information by event ID or by minimum magnitude.
+
+## Features:
+- Stores earthquake data securely using SQLite and SQLAlchemy ORM.
+- Provides RESTful API endpoints to:
+    Retrieve earthquake data by ID.
+    Retrieve earthquakes with a magnitude above a given threshold.
+- Returns responses in JSON format for easy frontend integration.
+- Database migrations handled with Flask-Migrate.
+- Seed script to populate the database with initial data.
+- Includes automated tests using Pytest.
+
+## Setup and Installation:
+1. Clone the repository and navigate to the server directory.
+2. Install dependencies and activate the virtual environment:
+    pipenv install
+    pipenv shell
+3. Set environment variables:
+    export FLASK_APP=app.py
+    export FLASK_RUN_PORT=5555
+4. Initialize and migrate the database:
+    flask db init
+    flask db migrate -m "initial migration"
+    flask db upgrade head
+5. Seed the database with initial earthquake data:
+    python seed.py
+6. Run the Flask server:
+    flask run
+
+## API Endpoints:
+GET /earthquakes/<int:id>
+Retrieve a specific earthquake by its ID. Returns 404 if not found.
+
+GET /earthquakes/magnitude/<float:magnitude>
+Retrieve all earthquakes with a magnitude greater than or equal to the specified value.
+
+## Testing:
+Run all tests via:
+    pytest
+
+
+--------------------------------
+
+
 ## Overview
 
 At your new role as a junior backend developer at Seismic Analytics Co., your 
